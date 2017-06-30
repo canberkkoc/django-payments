@@ -18,7 +18,8 @@ PACKAGES = [
     'payments.sagepay',
     'payments.sofort',
     'payments.stripe',
-    'payments.wallet']
+    'payments.wallet',
+    'payments.taler']
 
 REQUIREMENTS = [
     'braintree>=3.14.0',
@@ -34,7 +35,7 @@ REQUIREMENTS = [
 class PyTest(TestCommand):
     user_options = [('pytest-args=', 'a', "Arguments to pass to py.test")]
     test_args = []
-    
+
     def initialize_options(self):
         TestCommand.initialize_options(self)
         self.pytest_args = []
