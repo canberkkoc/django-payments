@@ -48,6 +48,18 @@ class RedirectNeeded(Exception):
     pass
 
 
+class PaymentRequired(Exception):
+    '''
+    Exception for Payment Required 402 status code
+    '''
+    def __init__(self, message, response):
+        super(PaymentRequired, self).__init__(message)
+        self._http_response = response
+
+    def get_response(self):
+        return self._http_response
+
+
 class PaymentError(Exception):
 
     def __init__(self, message, code=None, gateway_message=None):
